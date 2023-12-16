@@ -193,4 +193,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Ignore JSON file
+config.json
+
 # End of https://www.toptal.com/developers/gitignore/api/node,windows,macos,linux,vscode
