@@ -14,7 +14,7 @@ module.exports = {
 
     // 25 Character Limiter
     if (messageToEcho.length > 25) {
-      return interaction.reply('Unable to echo message over the 25 character limit. Try again!');
+      return interaction.reply('The input message must be at most 25 characters long.');
     }
 
     await interaction.reply(`You said: ${messageToEcho}`);
