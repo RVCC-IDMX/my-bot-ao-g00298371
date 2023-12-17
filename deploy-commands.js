@@ -1,3 +1,5 @@
+/* eslint-disable import/no-dynamic-require */
+/* eslint-disable global-require */
 /* eslint-disable indent */
 /* eslint-disable no-tabs */
 /* eslint-disable no-restricted-syntax */

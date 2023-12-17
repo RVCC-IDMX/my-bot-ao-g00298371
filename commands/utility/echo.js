@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable indent */
 const { SlashCommandBuilder } = require('discord.js');
 
