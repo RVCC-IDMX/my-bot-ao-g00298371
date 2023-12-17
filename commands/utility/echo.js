@@ -11,7 +11,7 @@ module.exports = {
   async execute(interaction) {
     const messageToEcho = interaction.options.getString('message');
 
-    // Check if the message length exceeds 25 characters
+    // 25-Character Limiter
     if (messageToEcho.length > 25) {
       return interaction.reply('The input message must be at most 25 characters long.');
     }
