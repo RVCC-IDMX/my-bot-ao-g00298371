@@ -129,7 +129,7 @@ module.exports = {
         );
       await interaction.reply({
         content: `To use Cowsay, you can enter a message of ${charLimit} `
-          + 'characters or less in the "message" field, and [optionally] enter a non-default "cow" in '
+          + 'characters or less in the "message" field and, optionally, enter a non-default "cow" in '
           + 'the cow field. If you\'re not sure what "cows" are available for use, go right ahead and '
           + 'select the bluish-purple button below to display a list!',
         components: [row],
