@@ -6,6 +6,9 @@ const {
 } = require('discord.js');
 const cowsay = require('cowsay');
 
+
+// Character limit setter
+
 const charLimit = 2000;
 const generateDummyText = () => {
   let dummyText = '';
@@ -21,7 +24,10 @@ async function getCowList() {
     }
     return names;
   }
+
+
   // Prohibited cows
+
   function checkProhibited(string) {
     try {
       const exclusionList = [
@@ -54,6 +60,8 @@ async function getCowList() {
 
 const cowList = getCowList();
 
+
+// Command builder
 
 module.exports = {
   data: new SlashCommandBuilder()
