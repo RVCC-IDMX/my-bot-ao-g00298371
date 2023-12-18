@@ -6,7 +6,7 @@ const {
 } = require('discord.js');
 const cowsay = require('cowsay');
 
-const charLimit = 500;
+const charLimit = 2000;
 const generateDummyText = () => {
   let dummyText = '';
   for (let i = 0; i < charLimit; i += 1) { dummyText += 'A'; }
@@ -16,7 +16,7 @@ const generateDummyText = () => {
 async function getCowList() {
   function callback(error, names) {
     if (error) {
-      console.error('Cowsay: A request to retrieve the cowlist could not be completed.');
+      console.error('Invalid request. Unable to retrieve list of cows.');
       return ['default'];
     }
     return names;
@@ -38,7 +38,7 @@ async function getCowList() {
         }
       });
 
-      if (stillTrue && (`\`\`\`${cowsay.say({ text: generateDummyText(), f: string })}\`\`\``).length > 1900) {
+      if (stillTrue && (`\`\`\`${cowsay.say({ text: generateDummyText(), f: string })}\`\`\``).length > 2000) {
         stillTrue = false;
       }
       return stillTrue;
@@ -58,16 +58,16 @@ const cowList = getCowList();
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('cowsay')
-    .setDescription('Enter a short message to generate an ASCII art cow with a speech bubble')
+    .setDescription('Enter a short message to generate ASCII cow cartoon with a speech bubble.')
     .addStringOption((option) => option.setName('message')
       .setDescription('A message to send via cow.')
       .setMaxLength(charLimit))
     .addStringOption((option) => option.setName('cow')
-      .setDescription('The cow to use')
+      .setDescription('The cow to use.')
       .setAutocomplete(true))
     .addStringOption((option) => option.setName('help')
-      .setDescription('Display a help dialog')
-      .addChoices({ name: 'Help me!', value: 'help' })),
+      .setDescription('Display help dialogue.')
+      .addChoices({ name: 'Help!', value: 'help' })),
   async autocomplete(interaction) {
     const focusedValue = interaction.options.getFocused();
     const choices = await cowList;
