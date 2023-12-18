@@ -20,6 +20,6 @@ module.exports = {
           .setURL('https://github.com/RVCC-IDMX/my-bot-ao-g00298371')
           .setStyle(ButtonStyle.Link),
       );
-    await interaction.reply({ content: 'To open the guide, click the "Open Guide" button below. To visit this project\'s repository on GitHub, click the gray link button to visit ', components: [row] });
+    await interaction.reply({ content: 'To open the guide, click the "Open Guide" button below. To visit this project\'s repository on GitHub, click the gray "Link" button.', components: [row] });
   },
 };
