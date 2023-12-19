@@ -195,5 +195,7 @@ $RECYCLE.BIN/
 
 # Ignore JSON file
 config.json
+cowsay2.js
+
 
 # End of https://www.toptal.com/developers/gitignore/api/node,windows,macos,linux,vscode
