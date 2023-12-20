@@ -56,6 +56,21 @@ client.on(Events.InteractionCreate, async (interaction) => {
     else {
       await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
     }
+  } if (interaction.isButton()) {
+    const buttonCommand = client.commands.get(interaction.customId);
+
+    if (!buttonCommand) {
+      console.error(`No command matching ${interaction.customId} was found for the button.`);
+      return;
+    }
+
+    try {
+      await buttonCommand.execute(interaction);
+    }
+    catch (error) {
+      console.error(error);
+      await interaction.reply({ content: 'There was an error while handling the button click!', ephemeral: true });
+    }
   }
 });
 
