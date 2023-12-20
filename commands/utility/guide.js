@@ -1,25 +1,29 @@
 /* eslint-disable indent */
 const {
-  SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle,
+  ActionRowBuilder, ButtonBuilder, ButtonStyle, SlashCommandBuilder,
 } = require('discord.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('guide')
-    .setDescription('A guide post with buttons.'),
+    .setDescription('Link to this bot\'s GitHub repo page.'),
   async execute(interaction) {
+    const viewmorebutton = new ButtonBuilder()
+      .setCustomId('view more')
+      .setLabel('View More')
+      .setStyle(ButtonStyle.Success);
+
+    const linkbutton = new ButtonBuilder()
+      .setLabel('GitHub repo')
+      .setURL('https://github.com/RVCC-IDMX/my-bot-ao-g00298371')
+      .setStyle(ButtonStyle.Link);
+
     const row = new ActionRowBuilder()
-      .addComponents(
-        new ButtonBuilder()
-          .setCustomId('primary')
-          .setLabel('Open Guide')
-          .setStyle(ButtonStyle.Primary),
-      ).addComponents(
-        new ButtonBuilder()
-          .setLabel('Link')
-          .setURL('https://github.com/RVCC-IDMX/my-bot-ao-g00298371')
-          .setStyle(ButtonStyle.Link),
-      );
-    await interaction.reply({ content: 'To open the guide, click the "Open Guide" button below. To visit this project\'s repository on GitHub, click the gray "Link" button.', components: [row] });
+      .addComponents(viewmorebutton, linkbutton);
+
+    await interaction.reply({
+      content: 'To visit this project\'s repository on GitHub, click the gray "Link" button.',
+      components: [row],
+    });
   },
 };
