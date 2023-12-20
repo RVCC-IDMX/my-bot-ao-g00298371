@@ -32,10 +32,6 @@ module.exports = {
     const cowText = interaction.options.getString('text');
     const cowChoice = interaction.options.getString('cow');
 
-    console.log('cow');
-    console.log('text');
-    console.log('cowMessage');
-
     if (!cowList.includes(cowChoice)) {
       await interaction.reply('Your cow choice is invalid! Please try again!');
       return;
